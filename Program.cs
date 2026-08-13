@@ -23,9 +23,18 @@ builder.Services.AddDbContext<AnagramDbContext>(options =>
 // ✅ Swagger for API docs
 builder.Services.AddEndpointsApiExplorer();
 
+// ✅ Prevent inotify crash by disabling reloadOnChange
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: false);
+builder.Configuration.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: false);
+
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+// ⚠️ Remove HTTPS redirection for Render (SSL handled at load balancer)
+if (app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseRouting();
 app.UseAuthorization();
 
