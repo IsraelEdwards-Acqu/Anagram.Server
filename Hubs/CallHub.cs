@@ -1,26 +1,19 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using System.Threading.Tasks;
 
-namespace Anagram.Server.Hubs
+public class CallHub : Hub
 {
-    public class CallHub : Hub
+    public async Task InitiateCall(string caller, string receiver)
     {
-        public async Task InitiateCall(string caller, string receiver)
-        {
-            // Notify receiver of incoming call
-            await Clients.User(receiver).SendAsync("IncomingCall", caller);
-        }
+        await Clients.All.SendAsync("IncomingCall", caller, receiver);
+    }
 
-        public async Task SendSignal(string receiver, string signalData)
-        {
-            // Forward WebRTC signaling data (offer/answer/ICE candidates)
-            await Clients.User(receiver).SendAsync("ReceiveSignal", signalData);
-        }
+    public async Task EndCall(string receiver)
+    {
+        await Clients.All.SendAsync("CallEnded", receiver);
+    }
 
-        public async Task EndCall(string receiver)
-        {
-            // Notify receiver that call has ended
-            await Clients.User(receiver).SendAsync("CallEnded");
-        }
+    public async Task OnCallStarted(string caller, string receiver)
+    {
+        await Clients.All.SendAsync("CallStarted", caller, receiver);
     }
 }
