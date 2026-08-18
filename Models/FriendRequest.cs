@@ -14,5 +14,6 @@ namespace Anagram.Server.Models
         public FriendRequestStatus Status { get; set; } = FriendRequestStatus.Pending;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? RespondedAt { get; set; }
+        public bool IsAccepted { get; set; } = false;
     }
 }

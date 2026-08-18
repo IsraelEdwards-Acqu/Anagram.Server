@@ -10,5 +10,11 @@ namespace Anagram.Server.Models
         public int UserBId { get; set; }
         public User UserB { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        // The user who initiated the friendship
+        public int UserId { get; set; }
+        // The friend (target user)
+        public int FriendId { get; set; }
+        public User Friend { get; set; }
     }
 }

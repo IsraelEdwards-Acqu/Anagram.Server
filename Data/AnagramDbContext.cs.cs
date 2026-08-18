@@ -126,6 +126,22 @@ namespace Anagram.Server.Data
             modelBuilder.Entity<Update>()
                 .HasOne(u => u.User).WithMany(x => x.Updates).HasForeignKey(u => u.UserId).OnDelete(DeleteBehavior.Cascade);
 
+            // Friendship: ensure unique pair (UserAId, UserBId)
+            modelBuilder.Entity<Friendship>()
+                .HasIndex(f => new { f.UserAId, f.UserBId })
+                .IsUnique();
+
+            modelBuilder.Entity<Friendship>()
+                .HasOne(f => f.UserA)
+                .WithMany()
+                .HasForeignKey(f => f.UserAId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Friendship>()
+                .HasOne(f => f.UserB)
+                .WithMany()
+                .HasForeignKey(f => f.UserBId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

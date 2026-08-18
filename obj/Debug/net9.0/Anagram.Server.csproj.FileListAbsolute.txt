@@ -103,10 +103,10 @@ C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\Anagram..1A447D7F.Up2Date
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\Anagram.Server.dll
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\refint\Anagram.Server.dll
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\Anagram.Server.pdb
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\Anagram.Server.genruntimeconfig.cache
 C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\ref\Anagram.Server.dll
+C:\Users\Capital Print\source\repos\DrivingApp\Anagram\Anagram.Server\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
