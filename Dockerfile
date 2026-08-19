@@ -1,19 +1,17 @@
 # Base runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
 # Build stage
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-# Copy csproj directly (since it's at repo root)
 COPY ["Anagram.Server.csproj", "./"]
 RUN dotnet restore "./Anagram.Server.csproj"
 
-# Copy everything else
 COPY . .
 WORKDIR "/src"
 RUN dotnet build "./Anagram.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
