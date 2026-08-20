@@ -167,6 +167,20 @@ namespace Anagram.Server.Controllers
             if (me == null) return Unauthorized();
             return Ok(me);
         }
+        // Public: list of available users (lightweight summary)
+        [AllowAnonymous]
+        [HttpGet("available")]
+        public async Task<IActionResult> GetAvailableUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        {
+            var users = await _db.Users
+                .OrderBy(u => u.Username)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(u => new UserSummaryDto(u.Id, u.Username, u.Name, u.AvatarUrl))
+                .ToListAsync();
+
+            return Ok(users);
+        }
     }
 
     // DTOs
